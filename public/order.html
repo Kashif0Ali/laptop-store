@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101b">
+  <meta name="robots" content="noindex">
+  <title>Your order · AK Apple Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main><section class="auth-wrap"><div class="auth-card" id="order-root"><p class="muted">Loading your order…</p></div></section></main>
+  <script type="module">
+    import { api, esc, rupees, setTitle, STORE } from "/app.js";
+    const root = document.getElementById("order-root");
+    const id = decodeURIComponent(location.pathname.replace(/^\/order\/?/, "").replace(/\/$/, ""));
+    try {
+      const order = await api(`/api/orders/${encodeURIComponent(id)}`);
+      setTitle(`Order ${order.id}`);
+      root.innerHTML = `<span class="eyebrow">Order request saved</span>
+        <h1>One last step.</h1>
+        <p>Your request <strong>#${esc(order.id)}</strong> is saved. It isn’t confirmed until the seller replies on WhatsApp.</p>
+        <div class="spec-grid">
+          <div class="spec"><small>Laptop</small><b>${esc(order.productName)}</b></div>
+          <div class="spec"><small>Quantity</small><b>${order.quantity}</b></div>
+          <div class="spec"><small>Indicative total</small><b>${rupees(order.totalPrice)}</b></div>
+          <div class="spec"><small>Payment</small><b>Cash on delivery</b></div>
+        </div>
+        <p class="muted">WhatsApp opens with your order details ready. Tap Send there to notify ${STORE.name} at ${STORE.whatsappDisplay}. No payment is taken online.</p>
+        <a class="button" href="${esc(order.whatsappUrl)}" target="_blank" rel="noopener noreferrer">Send order on WhatsApp ↗</a>
+        <p><a class="text-link" href="/">Continue shopping</a></p>`;
+    } catch (err) {
+      setTitle("Order not found");
+      root.innerHTML = `<span class="eyebrow">Not found</span><h1>We couldn’t find that order.</h1><p class="muted">${esc(err.message)}</p><a class="button" href="/">Back to the store</a>`;
+    }
+  </script>
+</body>
+</html>

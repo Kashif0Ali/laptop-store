@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101b">
+  <meta name="description" content="AK Apple Store — hand-picked MacBooks with honest specs, cash on delivery, and real seller support on WhatsApp.">
+  <title>Laptops, thoughtfully chosen · AK Apple Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Your next great idea starts here</span>
+          <h1>Power up.<br><span>Stand out.</span></h1>
+          <p>Find the laptop that moves at your speed. Curated picks, honest specs, and a real person ready to help you choose.</p>
+          <div class="hero-actions">
+            <a class="button" href="#shop">Explore the collection <span aria-hidden="true">↘</span></a>
+            <a class="button button-secondary" href="#why-ak">The AK Apple difference</a>
+          </div>
+          <div class="trust-row"><span><b>✳</b> Hand-picked tech</span><span><b>✓</b> Every spec, upfront</span><span><b>↗</b> Seller support</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Illustration of a laptop with product highlights">
+          <div class="glow"></div>
+          <div class="laptop-art" aria-hidden="true"><div class="laptop-screen"><div class="screen-glass"><div class="screen-top"><i></i><i></i><i></i></div><div class="screen-content"><div class="screen-pill"></div><div class="screen-title"></div><div class="screen-title short"></div><div class="screen-cards"><div class="screen-card"></div><div class="screen-card"></div><div class="screen-card"></div></div></div></div></div><div class="laptop-base"></div></div>
+          <div class="float-card float-one"><span class="float-icon">✦</span><small>YOUR NEXT UPGRADE</small><strong>Made for more.</strong></div>
+          <div class="float-card float-two"><small>THE AK APPLE STANDARD</small><strong>✓ Quality, checked</strong></div>
+        </div>
+      </div>
+    </section>
+    <section class="container section" id="shop">
+      <div class="section-heading">
+        <div><span class="eyebrow">The collection</span><h2>Find your next machine.</h2></div>
+        <div class="shop-tools">
+          <form id="search-form" role="search"><input class="field search-field" id="product-search" name="q" placeholder="Search brand, model, specs" aria-label="Search laptops"></form>
+          <select class="select" id="sort-products" aria-label="Sort laptops"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option></select>
+        </div>
+      </div>
+      <div class="filter-row" id="brand-filters" aria-label="Filter by brand" hidden></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"><div class="loading">Loading the collection…</div></div>
+      <div class="benefits" id="why-ak">
+        <div class="benefit"><span class="benefit-icon">✦</span><b>Only the good stuff</b><p>Thoughtful picks, clearly described. No spec-sheet scavenger hunts.</p></div>
+        <div class="benefit"><span class="benefit-icon">◈</span><b>Know before you buy</b><p>See the details that matter and get a straight answer from the seller.</p></div>
+        <div class="benefit"><span class="benefit-icon">↗</span><b>Cash on delivery</b><p>No online payment. Order in a minute, confirm with us on WhatsApp, and pay when it arrives.</p></div>
+      </div>
+    </section>
+    <dialog id="quick-view" aria-labelledby="modal-title">
+      <div class="modal-inner"><button type="button" class="modal-close" data-modal-close aria-label="Close quick view">✕</button><span class="eyebrow" data-modal-brand></span><h2 id="modal-title" data-modal-title></h2><strong class="detail-price" data-modal-price></strong><p data-modal-description></p><div class="modal-specs" data-modal-specs></div><a class="button" data-modal-link href="#">View full details ↗</a></div>
+    </dialog>
+  </main>
+  <script type="module" src="/home.js"></script>
+</body>
+</html>
