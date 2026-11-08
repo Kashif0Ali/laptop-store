@@ -1,0 +1,5 @@
+node_modules/
+.netlify/*
+!.netlify/results.md
+.DS_Store
+__pycache__/
